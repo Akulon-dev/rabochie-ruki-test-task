@@ -21,7 +21,7 @@
                         <p class="card-text">Лайки: <span
                                 id="like-count-{{ $article->id }}">{{ $article->likes }}</span></p>
                         <p>Просмотры: <span >{{ $article->views }}</span></p>
-                        <button class="btn btn-primary like-button" data-id="{{ $article->id }}">👍</button>
+                        <button class="btn btn-primary like-button" data-id="{{ $article->id }}" data-likes="{{ $article->likes }}">👍</button>
                     </div>
                 </div>
             </div>

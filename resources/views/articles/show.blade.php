@@ -12,7 +12,7 @@
     <p>Лайки: <span id="like-count">{{ $article->likes }}</span></p>
     <p>Просмотры: <span id="view-count">{{ $article->views }}</span></p>
 
-    <button class="btn btn-primary like-button" data-id="{{ $article->id }}">👍</button>
+    <button class="btn btn-primary like-button" data-id="{{ $article->id }}" data-likes="{{ $article->likes }}">👍</button>
     <h2 class="mt-4">Комментарии</h2>
     <form id="comment-form" data-article-id="{{ $article->id }}" class="mb-4">
         <div class="form-group">

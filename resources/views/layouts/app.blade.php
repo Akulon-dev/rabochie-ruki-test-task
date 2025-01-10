@@ -34,10 +34,10 @@
 
 <script>
     $(document).ready(function () {
-        let likes = {{ $article->likes }};
 
         $('.like-button').click(function () {
             const articleId = $(this).data('id');
+            let curLikes = $(this).data('likes');
             $.ajax({
                 url: `/api/articles/${articleId}/like`,
                 type: 'POST',
@@ -45,17 +45,17 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}' // Если требуется CSRF-токен
                 },
                 data: {
-                    likeCount: likes
+                    likeCount: curLikes
                 },
                 success: function (data) {
                     @if(request()->is('articles') or request()->is('/'))
                     $('#like-count-' + articleId).text(data.likes);
+                    $('.like-button[data-id="' + articleId + '"]').data('likes', data.likes);
                     @else
                     $('#like-count').text(data.likes);
+                    $('.like-button').data('likes', data.likes);
                     @endif
 
-                    likes = data.likes
-                    console.log({likes})
                 },
                 error: function (xhr, status, error) {
                     console.error('Error:', error);
