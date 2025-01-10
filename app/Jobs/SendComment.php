@@ -3,19 +3,19 @@
 namespace App\Jobs;
 
 use App\Models\Comment;
+use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
 class SendComment implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, \Illuminate\Bus\Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $articleID;
-    private $subject;
-    private $body;
+    protected int $articleID;
+    private string $subject;
+    private string $body;
 
     /**
      * Create a new job instance.

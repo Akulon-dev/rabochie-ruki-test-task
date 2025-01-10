@@ -13,7 +13,7 @@ class IncrementLikeCount implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $articleID;
+    protected int $articleID;
 
     public function __construct($articleID)
     {

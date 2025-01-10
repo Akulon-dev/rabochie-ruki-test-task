@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/articles/{articleID}/like', [ArticleController::class, 'incrementLike'])->name('api.articles.like');

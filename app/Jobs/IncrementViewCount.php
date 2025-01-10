@@ -13,14 +13,14 @@ class IncrementViewCount implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $articleId;
+    protected int $articleId;
 
     public function __construct($articleId)
     {
         $this->articleId = $articleId;
     }
 
-    public function handle()
+    public function handle(): void
     {
         $article = Article::findOrFail($this->articleId);
         $article->increment('views');

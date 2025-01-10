@@ -81,7 +81,7 @@
                         subject: subject,
                         body: body
                     },
-                    success: function (data) {
+                    success: function () {
                         // Скрываем форму и показываем сообщение об успешной отправке
                         $('#comment-form').hide();
                         $('#response-message').removeClass('d-none').text('Ваше сообщение успешно отправлено.');

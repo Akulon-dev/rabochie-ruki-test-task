@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\SendComment;
-use App\Models\Comment;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Controller;
 
 class CommentController extends Controller
 {
-    public function store(Request $request, $articleID)
+    public function store($articleID): JsonResponse
     {
-        $request->validate([
+        request()->validate([
             'subject' => 'required|string|max:255',
             'body' => 'required|string',
         ]);
 
-        SendComment::dispatch($articleID, $request->subject, $request->body);
+        SendComment::dispatch($articleID, request()->subject, request()->body);
 
-        return response()->json(['message' => 'Ваше сообщение успешно отправлено'], 200);
+        return response()->json(['message' => 'Ваше сообщение успешно отправлено']);
     }
 }

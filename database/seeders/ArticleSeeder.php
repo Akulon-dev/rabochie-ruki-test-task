@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
@@ -12,7 +11,7 @@ class ArticleSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run()
+    public function run(): void
     {
         $placeholders = json_decode(env('EXAMPLE_IMAGE_URLS', '["https://th.wallhaven.cc/lg/6d/6d6jk6.jpg","https://th.wallhaven.cc/lg/9d/9de96w.jpg","https://th.wallhaven.cc/lg/3l/3l2196.jpg","https://th.wallhaven.cc/lg/kx/kx8oed.jpg","https://th.wallhaven.cc/lg/rd/rdllkj.jpg"]'), true);
 
