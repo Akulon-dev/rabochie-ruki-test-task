@@ -4,12 +4,12 @@
 
 ## Развёртывание 
 ```bash
-mkdir rabochie-ruki-test-task
-cd rabochie-ruki-test-task
 git clone https://github.com/Akulon-dev/rabochie-ruki-test-task.git
+cd rabochie-ruki-test-task
 cp .env.example .env
 composer install
 php artisan key:generate
+composer update
 php artisan migrate
 php artisan db:seed
 php artisan serve & php artisan queue:work
